@@ -1,0 +1,10 @@
+#create admin user with all privileges on mysql/mariadb 
+#https://gist.github.com/Hikingyo/549698845d166e49eb3d238d03d49236
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'some_pass';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+## remote connection - not secure
+CREATE USER 'admin'@'%' IDENTIFIED BY 'some_pass';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
